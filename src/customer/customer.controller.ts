@@ -25,8 +25,10 @@ export class CustomerController {
   }
 
   @Get()
-  findAll(@Req() req: Request, @Res() res: Response): string {
+  findAll(@Req() req: Request, @Res() res: Response): Response {
     // return this.customerService.findAll();
+    console.log(req.url);
+    return res.send('Hello World');
   }
 
   @Get(':id')
