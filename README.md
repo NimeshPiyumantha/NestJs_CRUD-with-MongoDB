@@ -32,9 +32,12 @@ This is a learning Nest Js.
 ## - Technology
 
 - Nest Js
-- Post Man
+- Postman
 - MongoDB
 - Mongoose
+
+## - POSTMAN (`Url`)
+* 🔗 <a href="https://documenter.getpostman.com/view/21678240/2s93zB4MKR" target="_blank">**POSTMAN**</a>
 
 ## Description
 
@@ -106,8 +109,6 @@ https://github.com/NimeshPiyumantha/NestJs_CRUD-with-MongoDB.git
   </a></p>
 
  </div>
-
-##
 
 <p align="center">
 <a href="https://twitter.com/NPiyumantha60"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="__NimeshPiyumantha__" height="30" width="40" /></a>
