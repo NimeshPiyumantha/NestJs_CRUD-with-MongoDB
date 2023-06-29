@@ -6,13 +6,11 @@ import {
   Patch,
   Param,
   Delete,
-  Req,
-  Res,
+  Put,
 } from '@nestjs/common';
 import { CustomerService } from './customer.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
-import { Request, Response } from 'express';
 
 @Controller('customer')
 export class CustomerController {
@@ -25,27 +23,33 @@ export class CustomerController {
   }
 
   @Get()
-  findAll(@Req() req: Request, @Res() res: Response): Response {
-    // return this.customerService.findAll();
-    console.log(req.url);
-    return res.send('Hello World');
+  findAll(): string {
+    return this.customerService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id): string {
     return this.customerService.findOne(+id);
   }
 
   @Patch(':id')
   update(
-    @Param('id') id: string,
+    @Param('id') id,
     @Body() updateCustomerDto: UpdateCustomerDto,
-  ) {
+  ): string {
     return this.customerService.update(+id, updateCustomerDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id): string {
     return this.customerService.remove(+id);
+  }
+
+  @Put(':id')
+  updatePut(
+    @Param('id') id,
+    @Body() updateCustomerDto: UpdateCustomerDto,
+  ): string {
+    return this.customerService.update(+id, updateCustomerDto);
   }
 }
