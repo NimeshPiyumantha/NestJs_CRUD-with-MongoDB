@@ -11,8 +11,7 @@ import {
 import { CustomerService } from './customer.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
-import { ItemsService } from './customer.service';
-import { Item } from './interfaces/customer.interface';
+import { Customer } from './interfaces/customer.interface';
 
 @Controller('customer')
 export class CustomerController {
@@ -25,7 +24,7 @@ export class CustomerController {
   }
 
   @Get()
-  findAll(): string {
+  findAll(): Customer[] {
     return this.customerService.findAll();
   }
 
