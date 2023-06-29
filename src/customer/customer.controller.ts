@@ -22,7 +22,7 @@ export class CustomerController {
 
   @Get()
   findAll(): string {
-    return 'Get all customer';
+    return this.customerService.findAll();
   }
 
   @Get(':id')
