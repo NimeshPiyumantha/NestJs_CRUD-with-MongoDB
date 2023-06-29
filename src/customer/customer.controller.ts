@@ -17,24 +17,22 @@ export class CustomerController {
   constructor(private readonly customersService: CustomerService) {}
 
   @Post()
-  async create(
-    @Body() createCustomerDto: CreateCustomerDto,
-  ): Promise<Customer> {
+  create(@Body() createCustomerDto: CreateCustomerDto): Promise<Customer> {
     return this.customersService.saveCustomer(createCustomerDto);
   }
 
   @Get()
-  async findAll(): Promise<Customer[]> {
+  findAll(): Promise<Customer[]> {
     return this.customersService.findAllCustomer();
   }
 
   @Get(':id')
-  async findOne(@Param('id') id): Promise<Customer> {
+  findOne(@Param('id') id): Promise<Customer> {
     return this.customersService.findOneCustomer(id);
   }
 
   @Patch(':id')
-  async update(
+  update(
     @Param('id') id,
     @Body() createCustomerDto: CreateCustomerDto,
   ): Promise<Customer> {
@@ -42,12 +40,12 @@ export class CustomerController {
   }
 
   @Delete(':id')
-  async remove(@Param('id') id): Promise<Customer> {
+  remove(@Param('id') id): Promise<Customer> {
     return this.customersService.removeCustomer(id);
   }
 
   @Put(':id')
-  async updatePut(
+  updatePut(
     @Param('id') id,
     @Body() createCustomerDto: CreateCustomerDto,
   ): Promise<Customer> {
