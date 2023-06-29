@@ -6,23 +6,27 @@ import {
   Patch,
   Param,
   Delete,
+  Req,
+  Res,
 } from '@nestjs/common';
 import { CustomerService } from './customer.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
+import { Request, Response } from 'express';
 
 @Controller('customer')
 export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}
 
   @Post()
-  create(@Body() createCustomerDto: CreateCustomerDto) {
-    return this.customerService.create(createCustomerDto);
+  create(@Body() createCustomerDto: CreateCustomerDto): string {
+    // return this.customerService.create(createCustomerDto);
+    return `ID :${createCustomerDto.id} Name :${createCustomerDto.name} Email :${createCustomerDto.email} Contact :${createCustomerDto.contact}`;
   }
 
   @Get()
-  findAll(): string {
-    return this.customerService.findAll();
+  findAll(@Req() req: Request, @Res() res: Response): string {
+    // return this.customerService.findAll();
   }
 
   @Get(':id')
