@@ -21,8 +21,8 @@ export class CustomerController {
   }
 
   @Get()
-  findAll() {
-    return this.customerService.findAll();
+  findAll(): string {
+    return 'Get all customer';
   }
 
   @Get(':id')
