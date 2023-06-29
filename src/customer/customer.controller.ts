@@ -21,7 +21,7 @@ export class CustomerController {
   async create(
     @Body() createCustomerDto: CreateCustomerDto,
   ): Promise<Customer> {
-    return this.customerService.createCustomer(createCustomerDto);
+    return this.customerService.saveCustomer(createCustomerDto);
   }
 
   @Get()

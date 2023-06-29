@@ -12,7 +12,8 @@ export class CustomerService {
   ) {}
 
   async saveCustomer(createCustomerDto: CreateCustomerDto) {
-    return 'This action adds a new customer';
+    const newCustomer = new this.customerModel(createCustomerDto);
+    return await newCustomer.save();
   }
 
   async findAllCustomer(): Promise<Customer[]> {
@@ -26,10 +27,12 @@ export class CustomerService {
   }
 
   async updateCustomer(id: number, updateCustomerDto: UpdateCustomerDto) {
-    return `This action updates a #${id} customer`;
+    return await this.customerModel.findByIdAndUpdate(id, updateCustomerDto, {
+      new: true,
+    });
   }
 
   async removeCustomer(id: number) {
-    return `This action removes a #${id} customer`;
+    return await this.customerModel.findByIdAndRemove(id);
   }
 }
