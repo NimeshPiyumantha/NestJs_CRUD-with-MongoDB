@@ -7,19 +7,22 @@ import { Customer } from './interfaces/customer.interface';
 export class CustomerService {
   private readonly customers: Customer[] = [
     {
-      id: 'C00-001',
+      id: '33443434',
+      nic: 'C00-001',
       name: 'Nimesh',
       email: 'nimesh1@gmail.com',
       contact: '0777123456',
     },
     {
-      id: 'C00-002',
+      id: '3344534',
+      nic: 'C00-002',
       name: 'Nimesha',
       email: 'nimesh21@gmail.com',
       contact: '0777124456',
     },
     {
-      id: 'C00-003',
+      id: '33643434',
+      nic: 'C00-003',
       name: 'Nimeshd',
       email: 'nimesh14@gmail.com',
       contact: '0777123456',
@@ -35,8 +38,9 @@ export class CustomerService {
     return this.customers;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} customer`;
+  findOne(id: string): Customer {
+    // return `This action returns a #${id} customer`;
+    return this.customers.find((customers) => customers.id === id);
   }
 
   update(id: number, updateCustomerDto: UpdateCustomerDto) {

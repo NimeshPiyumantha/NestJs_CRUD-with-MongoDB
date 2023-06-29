@@ -20,7 +20,7 @@ export class CustomerController {
   @Post()
   create(@Body() createCustomerDto: CreateCustomerDto): string {
     // return this.customerService.create(createCustomerDto);
-    return `ID :${createCustomerDto.id} Name :${createCustomerDto.name} Email :${createCustomerDto.email} Contact :${createCustomerDto.contact}`;
+    return `ID :${createCustomerDto.nic} Name :${createCustomerDto.name} Email :${createCustomerDto.email} Contact :${createCustomerDto.contact}`;
   }
 
   @Get()
@@ -29,8 +29,8 @@ export class CustomerController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id): string {
-    return this.customerService.findOne(+id);
+  findOne(@Param('id') id): Customer {
+    return this.customerService.findOne(id);
   }
 
   @Patch(':id')
