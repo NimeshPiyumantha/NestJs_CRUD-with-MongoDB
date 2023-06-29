@@ -15,13 +15,11 @@ export class CustomerService {
   }
 
   async findAllCustomer(): Promise<Customer[]> {
-    // return `This action returns all customer`;
     return await this.customerModel.find();
   }
 
   async findOneCustomer(id: string): Promise<Customer> {
-    // return `This action returns a #${id} customer`;
-    return await this.customerModel.findOne({ id: id });
+    return await this.customerModel.findOne({ _id: id });
   }
 
   async updateCustomer(id: number, updateCustomerDto: Customer) {
