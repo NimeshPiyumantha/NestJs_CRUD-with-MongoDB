@@ -86,3 +86,7 @@ nest g resource customer
 ```
 npm i mongoose @nestjs/mongoose
 ```
+
+```
+npm i dotenv
+```
