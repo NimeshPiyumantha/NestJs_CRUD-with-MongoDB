@@ -50,6 +50,7 @@ export class CustomerController {
     @Param('id') id,
     @Body() updateCustomerDto: UpdateCustomerDto,
   ): string {
-    return this.customerService.update(+id, updateCustomerDto);
+    // return this.customerService.update(+id, updateCustomerDto);
+    return `Update :${id} - Name :${updateCustomerDto.name}`;
   }
 }
