@@ -90,3 +90,5 @@ npm i mongoose @nestjs/mongoose
 ```
 npm i dotenv
 ```
+
+src\customer> ```touch customer.models.ts```
