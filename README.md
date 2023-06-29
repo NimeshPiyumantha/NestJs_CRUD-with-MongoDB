@@ -84,7 +84,7 @@ nest g resource customer
 ```
 
 ```
-npm i mongoose @nestjs/mongoose
+npm i @nestjs/mongoose mongoose
 ```
 
 ```
