@@ -18,40 +18,40 @@ export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}
 
   @Post()
-  create(@Body() createCustomerDto: CreateCustomerDto): string {
-    // return this.customerService.create(createCustomerDto);
-    return `ID :${createCustomerDto.nic} Name :${createCustomerDto.name} Email :${createCustomerDto.email} Contact :${createCustomerDto.contact}`;
+  async create(
+    @Body() createCustomerDto: CreateCustomerDto,
+  ): Promise<Customer> {
+    return this.customerService.createCustomer(createCustomerDto);
   }
 
   @Get()
-  findAll(): Customer[] {
-    return this.customerService.findAll();
+  async findAll(): Promise<Customer[]> {
+    return this.customerService.findAllCustomer();
   }
 
   @Get(':id')
-  findOne(@Param('id') id): Customer {
-    return this.customerService.findOne(id);
+  async findOne(@Param('id') id): Promise<Customer> {
+    return this.customerService.findOneCustomer(id);
   }
 
   @Patch(':id')
-  update(
+  async update(
     @Param('id') id,
     @Body() updateCustomerDto: UpdateCustomerDto,
-  ): string {
-    return this.customerService.update(+id, updateCustomerDto);
+  ): Promise<Customer> {
+    return this.customerService.updateCustomer(+id, updateCustomerDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id): string {
-    return this.customerService.remove(+id);
+  async remove(@Param('id') id): Promise<Customer> {
+    return this.customerService.removeCustomer(+id);
   }
 
   @Put(':id')
-  updatePut(
+  async updatePut(
     @Param('id') id,
     @Body() updateCustomerDto: UpdateCustomerDto,
-  ): string {
-    // return this.customerService.update(+id, updateCustomerDto);
-    return `Update :${id} - Name :${updateCustomerDto.name}`;
+  ): Promise<Customer> {
+    return this.customerService.updateCustomer(+id, updateCustomerDto);
   }
 }
