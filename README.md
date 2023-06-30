@@ -50,6 +50,9 @@ This is a learning Nest Js.
 $ npm i -g @nestjs/cli
 $ nest new project-name
 
+# Nest Js Resource
+$ nest g resource customer
+
 # Install Project Nosql(MongoDB) 
 $ npm i @nestjs/mongoose mongoose
 
